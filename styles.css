@@ -2,8 +2,8 @@ body{
     margin:0;
     padding:0;
     font-family:sans-serif;
-    background:#000 !important;
     overflow:hidden;
+    transition: 0.3s all ease-in-out;
   }
 
 /* HEADER */
@@ -225,6 +225,11 @@ body{
     transform:translate(-44%,-50%) skewX(0deg);
     left:0;
     color:#33c48c;
+    margin-top: -1px;
+  }
+
+  .center:hover h1 span:nth-child(3){
+    margin-top: -2px;
   }
 
   .center h1 span:nth-child(4){
@@ -251,6 +256,10 @@ body{
     transform:translate(-49.5%, 30%) skewX(0deg);
     left:0;
     color:#33c48c;
+    margin-top: -1px;
+  }
+  .center:hover h1 span:nth-child(6){
+    margin-top: -2px;
   }
 
 

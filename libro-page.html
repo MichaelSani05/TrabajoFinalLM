@@ -78,7 +78,7 @@
     
       if (data.items && data.items.length > 0) {
         data.items.forEach(item => {
-            if (item.volumeInfo.description != undefined) {
+            if (item.volumeInfo.description != undefined && item.volumeInfo.readingModes.text != false) {
                 const libroDiv = document.createElement("div");
                 const link = document.createElement("a");
                 link.href = `libro-page.html?id=${item.id}`;
@@ -115,9 +115,19 @@
                     console.log(bookDescripcion);
 
                     const bookImage = document.getElementById("book-image");
-                    bookImage.setAttribute("src", data.volumeInfo.imageLinks.medium);
+                    if (data.volumeInfo.imageLinks.meidum != undefined) {
+                        bookImage.setAttribute("src", data.volumeInfo.imageLinks.medium);
+                    }
+                    else{
+                        bookImage.setAttribute("src", data.volumeInfo.imageLinks.small);
+                    }
+
                     const bookImg = document.getElementById("book-image2");
-                    bookImg.setAttribute("src", data.volumeInfo.imageLinks.small);
+                    if (data.volumeInfo.imageLinks.small != undefined) {
+                        bookImg.setAttribute("src", data.volumeInfo.imageLinks.small);
+                    } else{
+                        bookImg.setAttribute("src", data.volumeInfo.imageLinks.thumbnail);
+                    }
                 }
             )
             .catch(error => console.error('Error:', error));
