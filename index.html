@@ -23,7 +23,9 @@
     </nav>
     <header class=" col-12 d-flex justify-content-start align-items-center">
         <div id="logo" class="col-3 col-sm-1 h-100">
-            <img src="IMG/LOGO-MS.png" alt="" class="h-100">
+            <a href="#">
+                <img src="IMG/LOGO-MS.png" alt="logo-MS-Books" class="h-100">
+            </a>
         </div>
         <div id="menu-search" class="col-6 text-center m-auto">
             <input id="searchInput" placeholder="Buscar libro" class="input col-8 m-auto" name="text" type="text">
@@ -76,55 +78,40 @@
     
     <script>
         function buscarLibro() {
-          const terminoBusqueda = document.getElementById("searchInput").value;
-          const apiKey = "AIzaSyCvMHg8Bn8Z7AmgKQU7wG_EJ0MODawA4Qo";
-          const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${terminoBusqueda}&key=${apiKey}`;
-        
-          if (terminoBusqueda != '') {
-              fetch(url)
-               .then(response => response.json())
-               .then(data => mostrarResultados(data))
-               .catch(error => console.error('Error:', error));
-          }
-          else if (terminoBusqueda == '') {
-            mostrarResultados('');
-          }
+            const terminoBusqueda = document.getElementById("searchInput").value;
+            const apiKey = "AIzaSyCvMHg8Bn8Z7AmgKQU7wG_EJ0MODawA4Qo";
+            const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${terminoBusqueda}&key=${apiKey}`;
+            
+            if (terminoBusqueda != '') {
+                fetch(url)
+                .then(response => response.json())
+                .then(data => mostrarResultados(data))
+                .catch(error => console.error('Error:', error));
+            }
+            else if (terminoBusqueda == '') {
+                mostrarResultados('');
+            }
         }
         
         function mostrarResultados(data) {
-          const resultadosDiv = document.getElementById("resultados");
-          resultadosDiv.innerHTML = '';
-        
-          if (data.items && data.items.length > 0) {
-            data.items.forEach(item => {
-              const libroDiv = document.createElement("div");
-              const link = document.createElement("a");
-                link.href = `libro-page.html?id=${item.id}`;
-                link.textContent = item.volumeInfo.title;
-                libroDiv.appendChild(link);
-              resultadosDiv.appendChild(libroDiv);
-            });
-          } else {
-            resultadosDiv.textContent = "No se encontraron resultados.";
-          }
-        }
-    </script>
-    <script>
-        const body = document.getElementById("body");
-        const center = document.getElementById("center");
-        let colorChanged = false;
-
-        function changeBgColor() {
-            if (!colorChanged) {
-                body.style.backgroundColor = 'black';
-                colorChanged = true;
-            }
-            else{
-                body.style.backgroundColor = '#f0f0f0';
-                colorChanged = false;
+            const resultadosDiv = document.getElementById("resultados");
+            resultadosDiv.innerHTML = '';
+            
+            if (data.items && data.items.length > 0) {
+                data.items.forEach(item => {
+                    if (item.volumeInfo.description != undefined && item.volumeInfo.readingModes.text != false) {
+                        const libroDiv = document.createElement("div");
+                        const link = document.createElement("a");
+                        link.href = `libro-page.html?id=${item.id}`;
+                        link.textContent = item.volumeInfo.title;
+                        libroDiv.appendChild(link);
+                        resultadosDiv.appendChild(libroDiv);      
+                    }
+                });
+            } else {
+                resultadosDiv.textContent = "No se encontraron resultados.";
             }
         }
-
     </script>
 </body>
 </html>
