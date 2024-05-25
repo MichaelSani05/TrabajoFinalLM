@@ -14,7 +14,7 @@
 <body id="body" class="m-0 p-0">
     
     <header class=" col-12 d-flex justify-content-start align-items-center">
-        <div id="logo" class="col-3 h-100">
+        <div id="logo" class="col-md-3 col-4 h-100">
             <a href="index.html">
                 <img src="IMG/LOGO-MS.png" alt="" class="h-100">
             </a>
@@ -30,6 +30,11 @@
         <nav id="menu" class="col-6">
             <h1 class="col-3">Menú</h1>
             <hr>
+            <div id="menu-search-2" class="col-10 text-center m-auto mt-3 mb-3">
+                <input id="searchInput2" placeholder="Buscar libro" class="input col-8 m-auto" name="text" type="text">
+                <button id="searchButton" onclick="buscarLibro()" class="button2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="resultados2"></div>
+            </div>
             <ul class="col-12 p-0 d-flex flex-column justify-content-evenly align-items-center">
                 <li class="col-8 mb-4"><a href=""><button type="button" class="bttn col-12">Categorías</button></a></li>
                 <li class="col-8 mb-4"><a href=""><button type="button" class="bttn col-12">Categorías</button></a></li>
@@ -44,11 +49,11 @@
             <img src="IMG/book-banner-1.jpeg" alt="" class="w-100">
             <img id="book-image" src="" alt="" >
         </div>
-        <div id="book-content" class="col-10 m-auto d-flex justify-content-evenly pt-5">
+        <div id="book-content" class="row col-12 m-auto d-flex justify-content-evenly pt-5">
             <div id="book-img" class="col-2">
                 <img id="book-image2" src="" alt="" class="col-12">
             </div>
-            <div id="book-info" class="col-8">
+            <div id="book-info" class="col-10 col-sm-8">
                 <h1 id="book-title"></h1>
                 <p id="descripcion"></p>
             </div>
@@ -103,39 +108,79 @@
 <!-- BUSCAR LA INFORMACION -->
 <script>
     function buscarLibro() {
-      const terminoBusqueda = document.getElementById("searchInput").value;
-      const apiKey = "AIzaSyCvMHg8Bn8Z7AmgKQU7wG_EJ0MODawA4Qo";
-      const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${terminoBusqueda}&key=${apiKey}`;
-    
-      if (terminoBusqueda != '') {
-          fetch(url)
-           .then(response => response.json())
-           .then(data => mostrarResultados(data))
-           .catch(error => console.error('Error:', error));
-      }
-      else if (terminoBusqueda == '') {
-        mostrarResultados('');
-      }
+        if (window.innerWidth <= 550) {
+            const terminoBusqueda = document.getElementById("searchInput2").value;
+            const apiKey = "AIzaSyCvMHg8Bn8Z7AmgKQU7wG_EJ0MODawA4Qo";
+            const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${terminoBusqueda}&key=${apiKey}`;
+            
+            if (terminoBusqueda != '') {
+                fetch(url)
+                .then(response => response.json())
+                .then(data => mostrarResultados(data))
+                .catch(error => console.error('Error:', error));
+            }
+            else if (terminoBusqueda == '') {
+                mostrarResultados('');
+            }
+        }
+        else if(window.innerWidth > 550){
+            const terminoBusqueda = document.getElementById("searchInput").value;
+            const apiKey = "AIzaSyCvMHg8Bn8Z7AmgKQU7wG_EJ0MODawA4Qo";
+            const url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${terminoBusqueda}&key=${apiKey}`;
+            
+            if (terminoBusqueda != '') {
+                fetch(url)
+                .then(response => response.json())
+                .then(data => mostrarResultados(data))
+                .catch(error => console.error('Error:', error));
+            }
+            else if (terminoBusqueda == '') {
+                mostrarResultados('');
+            }
+        }
+      
     }
     
     function mostrarResultados(data) {
-      const resultadosDiv = document.getElementById("resultados");
-      resultadosDiv.innerHTML = '';
-    
-      if (data.items && data.items.length > 0) {
-        data.items.forEach(item => {
-            if (item.volumeInfo.description != undefined && item.volumeInfo.readingModes.text != false) {
-                const libroDiv = document.createElement("div");
-                const link = document.createElement("a");
-                link.href = `libro-page.html?id=${item.id}`;
-                link.textContent = item.volumeInfo.title;
-                libroDiv.appendChild(link);
-                resultadosDiv.appendChild(libroDiv);      
+        if (window.innerWidth <= 550) {
+            const resultadosDiv = document.getElementById("resultados2");
+            resultadosDiv.innerHTML = '';
+            
+            if (data.items && data.items.length > 0) {
+                data.items.forEach(item => {
+                    if (item.volumeInfo.description != undefined && item.volumeInfo.readingModes.text != false) {
+                        const libroDiv = document.createElement("div");
+                        const link = document.createElement("a");
+                        link.href = `libro-page.html?id=${item.id}`;
+                        link.textContent = item.volumeInfo.title;
+                        libroDiv.appendChild(link);
+                        resultadosDiv.appendChild(libroDiv);      
+                    }
+                });
+            } else {
+                resultadosDiv.textContent = "No se encontraron resultados.";
             }
-        });
-      } else {
-        resultadosDiv.textContent = "No se encontraron resultados.";
-      }
+        }
+        else if(window.innerWidth > 550){
+            const resultadosDiv = document.getElementById("resultados");
+            resultadosDiv.innerHTML = '';
+            
+            if (data.items && data.items.length > 0) {
+                data.items.forEach(item => {
+                    if (item.volumeInfo.description != undefined && item.volumeInfo.readingModes.text != false) {
+                        const libroDiv = document.createElement("div");
+                        const link = document.createElement("a");
+                        link.href = `libro-page.html?id=${item.id}`;
+                        link.textContent = item.volumeInfo.title;
+                        libroDiv.appendChild(link);
+                        resultadosDiv.appendChild(libroDiv);      
+                    }
+                });
+            } else {
+                resultadosDiv.textContent = "No se encontraron resultados.";
+            }
+        }
+      
     }
 </script>
     <!-- CARGAR INFORMACION -->
@@ -196,11 +241,11 @@
         })
 
         displayMenu.addEventListener('click', function () {
-            if (window.innerWidth <= 500) {
+            if (window.innerWidth <= 550) {
                 menu.style.width = '100%';
                 menu.style.overflow = 'visible';
             }
-            else if(window.innerWidth > 500){
+            else if(window.innerWidth > 550){
                 menu.style.width = '50%';
                 menu.style.overflow = 'visible';
             }
