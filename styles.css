@@ -5,7 +5,7 @@ body{
     overflow:hidden;
     transition: 0.3s all ease-in-out;
     background-color: black !important;
-  }
+  }  
 
 /* HEADER */
 
@@ -30,6 +30,38 @@ body{
     text-decoration: none !important;
     color: inherit !important;
   }
+
+  .menu-toggle:hover .submenu{
+    height: 145px;
+    overflow: visible;
+    border-radius: 10px !important;
+  }
+
+  .submenu{
+    margin-bottom: -25px;
+    border-radius: 10px !important;
+    height: 0px;
+    overflow: hidden;
+    transition: 0.4s all ease-in-out;
+  }
+
+  .submenu li{
+    background-color: #fff;
+    color: #33c48c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: 2px dashed #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .4s;
+  }
+
+  .submenu li:hover {
+    transition: .4s;
+    border: 2px dashed #fff;
+    background-color: #33c48c;
+    color: #fff;
+   }
 
   #menu-search .input, #menu-search-2 .input{
     background: none;

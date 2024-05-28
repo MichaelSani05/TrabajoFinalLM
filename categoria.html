@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="loading-page.css">
 </head>
 <body id="body">
     <nav id="menu" class="col-6">
@@ -24,7 +25,7 @@
                     <button type="button" class="bttn col-12">Categorías</button>
                 </a>
                 <ul class="submenu p-0 col-12 d-flex flex-column align-items-center mb-2">
-                    <li class="w-100 text-center p-1"><a href="categoria.html?subject=Fiction">Ficción</a></li>
+                    <li class="w-100 text-center p-1"><a href="">Ficción</a></li>
                     <li class="w-100 text-center p-1"><a href="">Aventura</a></li>
                     <li class="w-100 text-center p-1"><a href="">Distopia</a></li>
                     <li class="w-100 text-center p-1"><a href="">Otros</a></li>
@@ -68,7 +69,7 @@
     </nav>
     <header class=" col-12 d-flex justify-content-start align-items-center">
         <div id="logo" class="col-3 col-sm-1 h-100">
-            <a href="#">
+            <a href="index.html">
                 <img src="IMG/LOGO-MS.png" alt="logo-MS-Books" class="h-100">
             </a>
         </div>
@@ -82,15 +83,25 @@
         </div>
     </header>
     <main>
-        <div id="center" class="center" onmouseover="changeBgColor()">
-            <h1>
-                <span>MS</span>
-                <span>MS</span>
-                <span>MS</span>
-                <span>Books</span>
-                <span>Books</span>
-                <span>Books</span>
-            </h1>
+        <div id="categoria">
+            <div id="categoria-banner">
+                <h1 id="categoria-banner-title">
+
+                </h1>
+            </div>
+            <div id="categoria-content">
+
+            </div>
+        </div>
+        <div id="loader">
+            <div class="wrapper">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+            </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -196,6 +207,52 @@
             }
           
         }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            cargarInfo();
+        })
+        function cargarInfo() {
+            var params = new URLSearchParams(window.location.search);
+            var subject = params.get('subject');
+            const url = `https://www.googleapis.com/books/v1/volumes?q=subject:${subject}`;
+
+            fetch(url)
+            .then(response => response.json())
+            .then(data => mostrarResultadosCat(data))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function mostrarResultadosCat(data) {
+            const resultadosDiv = document.getElementById("categoria-content");
+            resultadosDiv.innerHTML = '';
+            
+            if (data.items && data.items.length > 0) {
+                data.items.forEach(item => {
+                    if (item.volumeInfo.description != undefined && item.volumeInfo.readingModes.text != false) {
+                        const libroDiv = document.createElement("div");
+                        libroDiv.setAttribute("id", "cat-libro-item")
+                        const link = document.createElement("a");
+                        link.href = `libro-page.html?id=${item.id}`;
+                        link.textContent = item.volumeInfo.title;
+                        libroDiv.appendChild(link);
+                        resultadosDiv.appendChild(libroDiv);      
+                    }
+                });
+            } else {
+                resultadosDiv.textContent = "No se encontraron resultados.";
+            }
+        }
+    </script>
+    <!-- LOADER -->
+    <script>
+        const loader = document.getElementById("loader");
+        const body = document.getElementById("body");
+
+        setTimeout(() => {
+            loader.style.display = "none";
+            body.style.overflow = "auto";
+        }, "2000");
     </script>
 </body>
 </html>
