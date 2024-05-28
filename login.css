@@ -1,0 +1,36 @@
+body{
+    overflow: visible;  
+}
+
+main{
+    background-color: white;
+    margin-top: 100px;
+    height: max-content;
+    min-height: 86.5vh;
+    place-content: center;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+.top-right-modal {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 300px; /* Ajusta el ancho según sea necesario */
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}

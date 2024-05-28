@@ -1,0 +1,129 @@
+body{
+    height: 100%;
+    overflow: visible;
+    background-color: rgb(15, 15, 15) !important;
+}
+
+main{
+    margin-top: 100px;
+    height: max-content;
+    min-height: 86.5vh;
+}
+
+header{
+    background-color: rgb(15, 15, 15);
+}
+
+#menu{
+    background-color: rgba(44, 44, 44, 0.836);
+    color: white;
+}
+
+#banner {
+    color: whitesmoke;
+    background-image: url("IMG/HOME/banner-img.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#banner-text{
+    padding:12rem 5rem;
+    background-color: rgba(0, 0, 0, 0.658);
+    height: 100%;
+    clip-path: polygon(75.5% 0%, 84.6% 0%, 59% 100.3%, 0% 100.3%, 0% 0%);
+}
+
+#banner h1{
+    color: #33c48c;
+}
+
+#btn-visitar {
+    margin-top: 30px;
+    padding: 17px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: hsl(150, 80%, 48%);
+    box-shadow: rgba(238, 238, 238, 0.836) 0 0 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+    color: white;
+    font-weight: 600;
+  }
+  
+  #btn-visitar:hover {
+    background-color: white;
+    color: hsl(0, 0%, 9%);
+    box-shadow: rgb(24, 220, 129) 0px 7px 29px 0px;
+  }
+  
+  #btn-visitar:active {
+    background-color: hsl(157, 80%, 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(231, 231, 231) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+  }
+  
+
+
+  /* CARDS */
+  #cards-section h1{
+    color: #33c48c;
+  }
+
+  .card {
+    height: 254px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+   }
+   
+   .card-details {
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+   }
+   
+   .card-button {
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background-color: #008bf8;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+   }
+   
+   .text-body {
+    color: rgb(134, 134, 134);
+   }
+   
+   .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+   
+   .card:hover {
+    border-color: #008bf8;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+   }
+   
+   .card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+   }
