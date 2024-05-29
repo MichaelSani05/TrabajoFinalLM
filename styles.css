@@ -318,6 +318,122 @@ body{
     display: none;
    }
 
+   /* FOOTER */
+#footer{
+  height: auto;
+  background-color: rgb(15, 15, 15);
+  padding: 40px;
+  color: white;
+}
+
+#newsletter, #help, #RRSS{
+  margin-top: 20px;
+}
+
+#footer form{
+  border-radius: 10px;
+}
+
+#footer input, #footer button{
+  padding: 10px;
+  border: none;
+}
+
+#newsletter{
+  height: 100%;
+}
+
+#newsletter-info{
+  height: 50%;
+}
+
+#newsletter img{
+  width: 100%;
+  max-height: 350px;
+}
+
+#footer input {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 1em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
+}
+
+#footer input:focus {
+  background-color: white;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 10px #969696,
+             -3px -3px 10px #ffffff;
+}
+
+#footer h4{
+  color: #33c48c;
+}
+
+.custom-btn {
+  width: 130px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+ }
+ 
+ .btn-1 {
+  background: rgb(96,9,240);
+  background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+  border: none;
+ }
+ 
+ .btn-1:before {
+  height: 0%;
+  width: 2px;
+ }
+ 
+ .btn-1:hover {
+  box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+               -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+     inset -4px -4px 6px 0 rgba(255,255,255,.2),
+     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+ }
+
+ #footer hr{
+  width: 50%;
+  transition: width 0.2s ease-in-out;
+  border: 2px solid #4ce3f7;
+ }
+
+ #help-info p:hover, #rrss-info p:hover{
+  transform: translate(10px);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+ }
+
+ #help-info:hover hr, #rrss-info:hover hr{
+  width: 100%;
+ }
+
+ #rrss-info i{
+  font-size: 18pt;
+  margin-right: 10px;
+ }
+
+ #rrss-info p:hover i{
+  color: #33c48c;
+ }
+
   /* MEDIA QUERYS */
 
    @media screen and (max-width: 550px) {

@@ -163,11 +163,11 @@ header{
 
    /* HERO */
    
-   #hero{
+   .hero{
     color: white;
    }
 
-   #hero-title{
+   .hero-title{
     color: #33c48c !important;
    }
 
