@@ -37,7 +37,7 @@ header{
     color: #33c48c;
 }
 
-#btn-visitar {
+#btn-visitar, #btn-hero {
     margin-top: 30px;
     padding: 17px 40px;
     border-radius: 50px;
@@ -53,13 +53,13 @@ header{
     font-weight: 600;
   }
   
-  #btn-visitar:hover {
+  #btn-visitar:hover, #btn-hero:hover {
     background-color: white;
     color: hsl(0, 0%, 9%);
     box-shadow: rgb(24, 220, 129) 0px 7px 29px 0px;
   }
   
-  #btn-visitar:active {
+  #btn-visitar:active, #btn-hero:active {
     background-color: hsl(157, 80%, 48%);
     color: hsl(0, 0%, 100%);
     box-shadow: rgb(231, 231, 231) 0px 0px 0px 0px;
@@ -75,11 +75,11 @@ header{
   }
 
   .card {
-    height: 254px;
+    height: 275px;
     border-radius: 20px;
     background: #f5f5f5;
     position: relative;
-    padding: 1.8rem;
+    padding: 1.6rem 1rem;
     border: 2px solid #c3c6ce;
     transition: 0.5s ease-out;
     overflow: visible;
@@ -123,7 +123,7 @@ header{
     margin: 0;
     font-weight: 500;
     line-height: 2;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.2px;
    }
    
    .text-title {
@@ -161,8 +161,15 @@ header{
     opacity: 1;
    }
 
+   /* HERO */
+   
+   #hero{
+    color: white;
+   }
 
-
+   #hero-title{
+    color: #33c48c !important;
+   }
 
    /* SLIDE */
 
@@ -183,7 +190,7 @@ header{
   }
   
   #slide-3{
-    background-image: linear-gradient(125deg, rgba(58,58,58,0.6783088235294117) 0%, rgba(75,75,75,0.3914740896358543) 50%, rgba(194,194,194,0.0102415966386555) 100%), url("/IMG//HOME/slide-img-3.jpg");
+    background-image: linear-gradient(125deg, rgba(58,58,58,0.6783088235294117) 0%, rgba(75,75,75,0.3914740896358543) 50%, rgba(194,194,194,0.0102415966386555) 100%), url("/IMG/HOME/slide-img-3.jpg");
   }
   
   #slide-4{
@@ -241,7 +248,7 @@ header{
   }
   
   .slide-1-texto h2{
-    color: #00eeff;
+    color: #33c48c;
   }
   
   #main-slide-1 input {
