@@ -46,12 +46,6 @@
                 <a href="home.html" class="h-100 d-flex display-submenu">
                     <button type="button" class="bttn col-12">Home</button>
                 </a>
-                <ul class="submenu p-0 col-12 d-flex flex-column align-items-center mb-2">
-                    <li class="w-100 text-center p-1"><a href="">Ficción</a></li>
-                    <li class="w-100 text-center p-1"><a href="">Aventura</a></li>
-                    <li class="w-100 text-center p-1"><a href="">Distopia</a></li>
-                    <li class="w-100 text-center p-1"><a href="">Otros</a></li>
-                </ul>
             </li>
             <li class="col-8 mb-4 position-relative menu-toggle">
                 <a href="login.html" class="h-100 d-flex display-submenu">
@@ -72,7 +66,7 @@
         </div>
     </header>
     <main class="d-flex flex-column">
-        <div id="banner" class="container-fluid">
+        <div id="banner" class="container-fluid mb-5">
             <div class="row">
                 <div id="banner-text" class="col-12">
                     <h1 id="banner-title" class="col-6">
@@ -88,32 +82,84 @@
             </div>
         </div>
         <section id="cards-section" class="col-12 d-flex flex-column align-items-center w-100 justify-content-evenly mt-5 m-0 p-0">
-            <h1 class="mt-5">DESTACADO</h1>
+            <h1 class="mt-5 mb-5">DESTACADO</h1>
             <div id="cards" class="row w-100 justify-content-evenly">
-                <div class="card mt-5 mb-5 col-md-3 col-sm-5 col-10">
-                    <div class="card-details">
-                      <p class="text-title">Título</p>
-                      <p class="text-body">Descripción...</p>
+                <div class="card-div mt-5 mb-5 col-md-3 col-sm-5 col-10">
+                    <div class="card-image col-8 m-auto mb-5">
+                        <img src="IMG/alas-de-sangre.jfif" alt="" class="w-100">
                     </div>
-                    <button class="card-button"><i class="fa-solid fa-cart-shopping pe-3"></i>Añadir</button>
+                    <div class="card">
+                        <div class="card-details">
+                          <p class="text-title">Alas de sangre</p>
+                          <p class="text-body align-content-center">
+                            <span><i class="fa-solid fa-pen-nib pe-2"></i></span><span>Rebeca Yarros</span>
+                            <br>
+                            <span><i class="fa-solid fa-calendar-days pe-2"></i>5 de agosto de 2023</span>
+                            <br>
+                            <span><i class="fa-solid fa-tag pe-2"></i>21.75 €</span>
+                          </p>
+                        </div>
+                        <button class="card-button" data-toggle="modal" data-target="#cartModal"><i class="fa-solid fa-cart-shopping pe-3" ></i>Añadir</button>
+                    </div>
                 </div>
-                <div class="card mt-5 mb-5 col-md-3 col-sm-5 col-10">
-                    <div class="card-details">
-                      <p class="text-title">Título</p>
-                      <p class="text-body">Descripción...</p>
+                <div class="card-div mt-5 mb-5 col-md-3 col-sm-5 col-10">
+                    <div class="card-image col-8 m-auto mb-5">
+                        <img src="IMG/alas-de-hierro.jfif" alt="" class="w-100">
                     </div>
-                    <button class="card-button"><i class="fa-solid fa-cart-shopping pe-3"></i>Añadir</button>
-                  </div>
-                <div class="card mt-5 mb-5 col-md-3 col-sm-5 col-10">
-                    <div class="card-details">
-                      <p class="text-title">Título</p>
-                      <p class="text-body">Descripción...</p>
+                    <div class="card">
+                        <div class="card-details">
+                          <p class="text-title">Alas de sangre</p>
+                          <p class="text-body align-content-center">
+                            <span><i class="fa-solid fa-pen-nib pe-2"></i></span><span>Rebeca Yarros</span>
+                            <br>
+                            <span><i class="fa-solid fa-calendar-days pe-2"></i>5 de agosto de 2023</span>
+                            <br>
+                            <span><i class="fa-solid fa-tag pe-2"></i>21.75 €</span>
+                          </p>
+                        </div>
+                        <button class="card-button" data-toggle="modal" data-target="#cartModal"><i class="fa-solid fa-cart-shopping pe-3" ></i>Añadir</button>
                     </div>
-                    <button class="card-button"><i class="fa-solid fa-cart-shopping pe-3"></i>Añadir</button>
+                </div>
+                <div class="card-div mt-5 mb-5 col-md-3 col-sm-5 col-10">
+                    <div class="card-image col-8 m-auto mb-5">
+                        <img src="IMG/el-señor-de-los-anillos.jfif" alt="" class="w-100">
+                    </div>
+                    <div class="card">
+                        <div class="card-details">
+                          <p class="text-title">Alas de sangre</p>
+                          <p class="text-body align-content-center">
+                            <span><i class="fa-solid fa-pen-nib pe-2"></i></span><span>Rebeca Yarros</span>
+                            <br>
+                            <span><i class="fa-solid fa-calendar-days pe-2"></i>5 de agosto de 2023</span>
+                            <br>
+                            <span><i class="fa-solid fa-tag pe-2"></i>21.75 €</span>
+                          </p>
+                        </div>
+                        <button class="card-button" data-toggle="modal" data-target="#cartModal"><i class="fa-solid fa-cart-shopping pe-3" ></i>Añadir</button>
+                    </div>
                 </div>
             </div>
         </section>
+        <!-- Modal -->
+        <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-top-left" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Añadido al carrito</h5>
+                    </div>
+                    <div class="modal-body">
+                        Su libro ha sido añadido correctamente.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Quitar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         const closeMenu = document.getElementById("close-menu");
