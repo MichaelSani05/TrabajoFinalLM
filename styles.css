@@ -4,7 +4,7 @@ body{
     font-family:sans-serif;
     overflow:hidden;
     transition: 0.3s all ease-in-out;
-    background-color: black !important;
+    background-color: rgb(15, 15, 15) !important;
   }  
 
 /* HEADER */
