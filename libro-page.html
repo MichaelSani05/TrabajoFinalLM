@@ -16,7 +16,7 @@
     <header class=" col-12 d-flex justify-content-start align-items-center">
         <div id="logo" class="col-md-3 col-4 h-100">
             <a href="index.html">
-                <img src="IMG/LOGO-MS.png" alt="" class="h-100">
+                <img src="IMG/MS-BOOKS-LOGO.png" alt="" class="h-100">
             </a>
         </div>
         <div id="menu-search" class="col-6 text-center">
@@ -49,25 +49,19 @@
                 </li>
                 <li class="col-8 mb-4 position-relative menu-toggle">
                     <a href="" class="h-100 d-flex display-submenu">
-                        <button type="button" class="bttn col-12">Categorías</button>
+                        <button type="button" class="bttn col-12">Nuevos</button>
                     </a>
                     <ul class="submenu p-0 col-12 d-flex flex-column align-items-center mb-2">
-                        <li class="w-100 text-center p-1"><a href="">Ficción</a></li>
-                        <li class="w-100 text-center p-1"><a href="">Aventura</a></li>
-                        <li class="w-100 text-center p-1"><a href="">Distopia</a></li>
+                        <li class="w-100 text-center p-1"><a href="">Bestsellers</a></li>
+                        <li class="w-100 text-center p-1"><a href="">Últimos lanzamientos</a></li>
+                        <li class="w-100 text-center p-1"><a href="">Autores conocidos</a></li>
                         <li class="w-100 text-center p-1"><a href="">Otros</a></li>
                     </ul>
                 </li>
                 <li class="col-8 mb-4 position-relative menu-toggle">
-                    <a href="" class="h-100 d-flex display-submenu">
-                        <button type="button" class="bttn col-12">Categorías</button>
+                    <a href="home.html" class="h-100 d-flex display-submenu">
+                        <button type="button" class="bttn col-12">Home</button>
                     </a>
-                    <ul class="submenu p-0 col-12 d-flex flex-column align-items-center mb-2">
-                        <li class="w-100 text-center p-1"><a href="">Ficción</a></li>
-                        <li class="w-100 text-center p-1"><a href="">Aventura</a></li>
-                        <li class="w-100 text-center p-1"><a href="">Distopia</a></li>
-                        <li class="w-100 text-center p-1"><a href="">Otros</a></li>
-                    </ul>
                 </li>
                 <li class="col-8 mb-4 position-relative menu-toggle">
                     <a href="login.html" class="h-100 d-flex display-submenu">
@@ -81,15 +75,48 @@
     <main class="pb-5">
         <div id="banner">
             <img src="IMG/book-banner-1.jpeg" alt="" class="w-100">
-            <img id="book-image" src="" alt="" >
+            <img id="book-image" src="" alt="">
+            <div id="fondo-luz" class="col-12 w-100 h-100 position-absolute top-0">
+
+            </div>
+            <img id="lampara" src="IMG/lampara.png" alt="" class="">
         </div>
         <div id="book-content" class="row col-12 m-auto d-flex justify-content-evenly pt-5">
-            <div id="book-img" class="col-2">
-                <img id="book-image2" src="" alt="" class="col-12">
+            <div id="book-img" class="col-6 col-md-4 text-center">
+                <img id="book-image2" src="" alt="" class="col-10">
+                <div class="card mt-3 mb-3">
+                    <div class="card-details">
+                      <p id="page-card-title" class="text-title">Alas de sangre</p>
+                      <p class="text-body align-content-center">
+                        <span><i class="fa-solid fa-pen-nib pe-2"></i></span><span id="page-card-autor"></span>
+                        <br>
+                        <span><i class="fa-solid fa-calendar-days pe-2"></i><span id="page-card-date"></span></span>
+                        <br>
+                        <span><i class="fa-solid fa-tag pe-2"></i><span id="page-card-price">No disponible</span></span>
+                      </p>
+                    </div>
+                    <button class="card-button" data-toggle="modal" data-target="#cartModal"><i class="fa-solid fa-cart-shopping pe-3" ></i>Añadir</button>
+                </div>
             </div>
-            <div id="book-info" class="col-10 col-sm-8">
-                <h1 id="book-title"></h1>
+            <div id="book-info" class="col-10 col-md-8">
+                <h1 id="book-title" class="mb-4"></h1>
                 <p id="descripcion"></p>
+            </div>
+        </div>
+        <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-top-left" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Añadido al carrito</h5>
+                    </div>
+                    <div class="modal-body">
+                        Su libro ha sido añadido correctamente.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Quitar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="loader">
@@ -139,6 +166,23 @@
         </div>
       </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    const banner = document.getElementById("banner");
+    const fondoLuz = document.getElementById("fondo-luz");
+    let clicked = false;
+    banner.addEventListener('click', function luz() {
+        if (clicked == false) {
+            fondoLuz.style.animation = 'luz 0.4s 1 forwards';
+            clicked = true;
+        }
+        else if(clicked == true){
+            fondoLuz.style.animation = 'quitar-luz 0.1s 1 forwards';
+            clicked = false;
+        }
+    })
+</script>
 <!-- BUSCAR LA INFORMACION -->
 <script>
     function buscarLibro() {
@@ -253,6 +297,35 @@
                     } else{
                         bookImg.setAttribute("src", data.volumeInfo.imageLinks.thumbnail);
                     }
+
+                    const cardTitle = document.getElementById("page-card-title");
+                    if (data.volumeInfo.title != null || data.volumeInfo.title != undefined) {
+                        cardTitle.innerHTML = data.volumeInfo.title;
+                    }else{
+                        cardTitle.innerHTML = "No title available";
+                    }
+
+                    const cardAutor = document.getElementById("page-card-autor");
+                    if (data.volumeInfo.authors[0] != null || data.volumeInfo.authors[0] != undefined) {
+                        cardAutor.innerHTML = data.volumeInfo.authors[0];
+                    }else{
+                        cardAutor.innerHTML = "No author available";
+                    }
+
+                    const cardDate = document.getElementById("page-card-date");
+                    if (data.volumeInfo.publishedDate != null || data.volumeInfo.publishedDate != undefined) {
+                        cardDate.innerHTML = data.volumeInfo.publishedDate;
+                    }else{
+                        cardDate.innerHTML = "No date available";
+                    }
+
+                    const cardPrice = document.getElementById("page-card-price");
+                    if (data.saleInfo.listPrice.amount != null || data.saleInfo.listPrice.amount != 0) {
+                        cardPrice.innerHTML = data.saleInfo.listPrice.amount + "€";
+                    }else if(data.saleInfo.retailPrice.amount != null || data.saleInfo.retailPrice.amount != 0){
+                        cardPrice.innerHTML = data.saleInfo.retailPrice.amount + "€";
+                    }
+
                 }
             )
             .catch(error => console.error('Error:', error));

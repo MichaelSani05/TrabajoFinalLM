@@ -30,7 +30,12 @@ header{
     padding:12rem 5rem;
     background-color: rgba(0, 0, 0, 0.658);
     height: 100%;
+    transition: 0.3s all ease-in-out;
     clip-path: polygon(75.5% 0%, 84.6% 0%, 59% 100.3%, 0% 100.3%, 0% 0%);
+}
+
+#banner:hover #banner-text{
+  clip-path: polygon(75.5% 0%, 130% 0%, 100% 100.3%, 0% 100.3%, 0% 0%);
 }
 
 #banner h1{
