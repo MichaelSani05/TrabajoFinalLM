@@ -79,6 +79,9 @@
             <div id="fondo-luz" class="col-12 w-100 h-100 position-absolute top-0">
 
             </div>
+            <div id="fondo" class="col-12 w-100 h-100 position-absolute top-0">
+
+            </div>
             <img id="lampara" src="IMG/lampara.png" alt="" class="">
         </div>
         <div id="book-content" class="row col-12 m-auto d-flex justify-content-evenly pt-5">
@@ -174,7 +177,7 @@
     let clicked = false;
     banner.addEventListener('click', function luz() {
         if (clicked == false) {
-            fondoLuz.style.animation = 'luz 0.4s 1 forwards';
+            fondoLuz.style.animation = 'luz 0.1s 1 forwards';
             clicked = true;
         }
         else if(clicked == true){
