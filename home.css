@@ -23,8 +23,8 @@ header{
     background-image: url("IMG/HOME/banner-img.jpg");
     background-size: cover;
     background-position: center;
-    animation: aparecer linear both reverse;
-    animation-timeline: view(0% 100%);
+    animation: opacidad linear both reverse;
+    animation-timeline: view(0% 90%);
 }
 
 #banner-text{
@@ -90,7 +90,7 @@ header{
     overflow: visible;
     animation: aparecer linear both;
     animation-timeline: view(10% 20%);
-    animation-range: 0 200px;
+    animation-range: 0 100px;
    }
 
    .card-image{
@@ -181,8 +181,8 @@ header{
 
    .hero-title{
     color: #33c48c !important;
-    animation: aparecer linear both;
-    animation-timeline: view(10% 20%);
+    animation: aparecer linear both, aparecer linear;
+    animation-timeline: view(100% 20%);
     animation-range: 0 300px;
    }
 
@@ -218,7 +218,7 @@ header{
     align-items: center;
     margin: 0;
     animation: aparecer linear both;
-    animation-timeline: view(10% 20%);
+    animation-timeline: view(10% 30%);
     animation-range: 0 400px;
   }
   
@@ -341,13 +341,12 @@ header{
 
   
   @keyframes aparecer {
-    from{
+    0%{
       opacity: 0;
       transform: scale(0.5);
-      transform: translateY(20);
     }
-    
-    to{
+
+    100%{
       opacity: 1;
       transform: scale(1);
     }
