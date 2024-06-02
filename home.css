@@ -5,7 +5,6 @@ body{
 }
 
 main{
-    margin-top: 100px;
     height: max-content;
     min-height: 86.5vh;
 }
@@ -24,6 +23,8 @@ header{
     background-image: url("IMG/HOME/banner-img.jpg");
     background-size: cover;
     background-position: center;
+    animation: aparecer linear both reverse;
+    animation-timeline: view(0% 100%);
 }
 
 #banner-text{
@@ -32,10 +33,6 @@ header{
     height: 100%;
     transition: 0.3s all ease-in-out;
     clip-path: polygon(75.5% 0%, 84.6% 0%, 59% 100.3%, 0% 100.3%, 0% 0%);
-}
-
-#banner:hover #banner-text{
-  clip-path: polygon(75.5% 0%, 130% 0%, 100% 100.3%, 0% 100.3%, 0% 0%);
 }
 
 #banner h1{
@@ -77,6 +74,9 @@ header{
   /* CARDS */
   #cards-section h1{
     color: #33c48c;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 60%);
+    animation-range: 0 200px;
   }
 
   .card {
@@ -88,10 +88,16 @@ header{
     border: 2px solid #c3c6ce;
     transition: 0.5s ease-out;
     overflow: visible;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 20%);
+    animation-range: 0 200px;
    }
 
    .card-image{
     transition: 0.3s all ease-in-out;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 50%);
+    animation-range: 0 200px;
    }
    
    .card-div:hover .card-image{
@@ -170,10 +176,38 @@ header{
    
    .hero{
     color: white;
+    margin: 250px auto;
    }
 
    .hero-title{
     color: #33c48c !important;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 20%);
+    animation-range: 0 300px;
+   }
+
+   .hero-title2{
+    animation: aparecer linear both;
+    animation-timeline: view(10% 50%);
+    animation-range: 0 200px;
+   }
+
+   .hero img{
+    animation: opacidad linear both;
+    animation-timeline: view(30% 35%);
+    animation-range: 0 400px;
+   }
+
+   .hero-text{
+    animation: aparecer linear both;
+    animation-timeline: view(15% 20%);
+    animation-range: 0 350px;
+   }
+
+   .hero-text2{
+    animation: aparecer linear both;
+    animation-timeline: view(15% 40%);
+    animation-range: 0 350px;
    }
 
    /* SLIDE */
@@ -183,6 +217,9 @@ header{
     justify-content: center;
     align-items: center;
     margin: 0;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 20%);
+    animation-range: 0 400px;
   }
   
   
@@ -298,4 +335,30 @@ header{
   
   input:not(:checked)+label+.ci {
     transition: 0;
+  }
+
+  /* ANIMACIONES */
+
+  
+  @keyframes aparecer {
+    from{
+      opacity: 0;
+      transform: scale(0.5);
+      transform: translateY(20);
+    }
+    
+    to{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes opacidad {
+    from{
+      opacity: 0;
+    }
+
+    to{
+      opacity: 1;
+    }
   }
