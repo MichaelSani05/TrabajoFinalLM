@@ -8,6 +8,10 @@ main{
   background-image: linear-gradient(#051327, #000);
 }
 
+.center-container{
+  height: 90vh;
+}
+
 .space-1, .space-2, .space-3{
   width: var(--size);
   height: var(--size);

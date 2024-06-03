@@ -238,11 +238,23 @@ body{
     transform:prespective(800px) translate(-50%, -50%);
     transform:skewY(15deg);
     transition:0.5s;
+    animation: center-skew linear both;
+    animation-timeline: view(10% 70%);
   }
   
   .center:hover{
     transform:prespective(900px) translate(-50%,-50%);
     transform:skewY(0deg);
+  }
+
+  @keyframes center-skew {
+    from{
+      transform:skewY(15deg);
+    }
+
+    to{
+      transform:skewY(0deg);
+    }
   }
   
   .center h1 span{
