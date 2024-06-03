@@ -5,8 +5,29 @@ body{
 }
 
 main{
-    height: max-content;
-    min-height: 86.5vh;
+  background-image: linear-gradient(#051327, #000);
+}
+
+.space-1, .space-2, .space-3{
+  width: var(--size);
+  height: var(--size);
+  background: #fff;
+  box-shadow: var(--space-layer);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 75%;
+  animation: moveStars var(--duration) linear infinite;
+}
+
+@keyframes moveStars{
+  from{
+    transform: translateY(0);
+  }
+
+  to{
+    transform: translateY(-100vh);
+  }
 }
 
 header{
@@ -28,7 +49,7 @@ header{
 }
 
 #banner-text{
-    padding:12rem 5rem;
+    padding:16rem 5rem;
     background-color: rgba(0, 0, 0, 0.658);
     height: 100%;
     transition: 0.3s all ease-in-out;
