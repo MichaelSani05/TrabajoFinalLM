@@ -264,7 +264,7 @@ body{
     margin:0;
     padding:0;
     text-transform:uppercase;
-    font-size: clamp(6rem, -1.4507rem + 16.0423vw, 16rem);
+    font-size: clamp(4rem, -0.4507rem + 16.0423vw, 16rem);
     color:#33c48c;
     transform-style:preserve-3d;
     transition:0.5s;
