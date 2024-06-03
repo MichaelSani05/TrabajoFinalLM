@@ -232,9 +232,8 @@ body{
 /* CENTER */
   
   .center{
+    margin-top: -200px;
     position:absolute;
-    top:40%;
-    left:50%;
     transform:prespective(800px) translate(-50%, -50%);
     transform:skewY(15deg);
     transition:0.5s;
@@ -265,7 +264,7 @@ body{
     margin:0;
     padding:0;
     text-transform:uppercase;
-    font-size: clamp(4rem, -2.4507rem + 18.0423vw, 20rem);
+    font-size: clamp(6rem, -1.4507rem + 16.0423vw, 16rem);
     color:#33c48c;
     transform-style:preserve-3d;
     transition:0.5s;
