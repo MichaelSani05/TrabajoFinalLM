@@ -268,6 +268,7 @@ body{
     color:#33c48c;
     transform-style:preserve-3d;
     transition:0.5s;
+    overflow: hidden;
   }
   .center h1 span:nth-child(1){
     clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
