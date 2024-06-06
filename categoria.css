@@ -99,3 +99,100 @@ main{
       transform: translateY(-100vh);
     }
   }
+
+
+
+  /* CARDS */
+
+  .card {
+    height: 275px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    padding: 1.6rem 1rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 20%);
+    animation-range: 0 100px;
+   }
+
+   .card-image{
+    transition: 0.3s all ease-in-out;
+    animation: aparecer linear both;
+    animation-timeline: view(10% 50%);
+    animation-range: 0 200px;
+   }
+   
+   .card-div:hover .card-image{
+    transform: translateY(-10px);
+    filter: brightness(1.1);
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.3));
+   }
+
+   .card-details {
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+   }
+   
+   .card-button {
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background-color: #008bf8;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+   }
+   
+   .text-body {
+    color: rgb(134, 134, 134);
+    margin: 0;
+    font-weight: 500;
+    line-height: 2;
+    letter-spacing: 0.2px;
+   }
+   
+   .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0px;
+    color: #13aa70;
+   }
+
+   .text-body i{
+    color: #13aa70;
+   }
+   
+   .card:hover {
+    border-color: #086340;
+    box-shadow: 1px 4px 18px 1px rgba(161, 161, 161, 0.25);
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+   }
+
+   .card:hover .text-title, .card:hover .text-body i{
+    color: #4ece9d;
+   }
+
+   .card:hover .text-body span{
+    color: white;
+   }
+   
+   .card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+   }

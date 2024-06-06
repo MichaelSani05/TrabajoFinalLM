@@ -85,7 +85,7 @@
             <div id="sliced-bottom" class="bottom col-12" aria-hidden="true"></div>
         </section>
         <div id="categorias" class="col-12 row justify-content-center">
-            <div id="categoria-content" class="row col-10 justify-content-center">
+            <div id="categoria-content" class="row col-10 justify-content-evenly">
 
             </div>
         </div>
@@ -244,58 +244,69 @@
         }
 
         function mostrarResultadosCat(data) {
-            const resultadosDiv = document.getElementById("categoria-content");
-            resultadosDiv.innerHTML = '';
+    const resultadosDiv = document.getElementById("categoria-content");
+    resultadosDiv.innerHTML = '';
+
+    if (data.items && data.items.length > 0) {
+        data.items.forEach(item => {
+            if (item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail) {
+                const cardDiv = document.createElement('div');
+            const cardImageDiv = document.createElement('div');
+            const img = document.createElement('img');
+            const card = document.createElement('div');
+            const cardDetailsDiv = document.createElement('div');
+            const titleP = document.createElement('p');
+            const bodyP = document.createElement('p');
+            const authorSpan = document.createElement('span');
+            const dateSpan = document.createElement('span');
+            const priceSpan = document.createElement('span');
+            const button = document.createElement('button');
+            const cartIcon = document.createElement('i');
+
+            // Configurar las clases y atributos
+            cardDiv.className = 'card-div mt-5 mb-5 col-md-4 col-sm-5 col-10';
+            cardImageDiv.className = 'card-image col-8 m-auto mb-5';
+            img.alt = '';
+            img.className = 'w-100';
+            card.className = 'card';
+            cardDetailsDiv.className = 'card-details';
+            titleP.className = 'text-title';
+            bodyP.className = 'text-body align-content-center';
+            button.className = 'card-button';
+            button.setAttribute('data-toggle', 'modal');
+            button.setAttribute('data-target', '#cartModal');
+            cartIcon.className = 'fa-solid fa-cart-shopping pe-3';
+
+            img.src = item.volumeInfo.imageLinks.smallThumbnail;
             
-            if (data.items && data.items.length > 0) {
-                data.items.forEach(item => {
-                    if (item.volumeInfo.description != undefined) {
-                        const libroDiv = document.createElement("div");
-                        libroDiv.setAttribute("class", "card-div mt-5 mb-5 col-md-3 col-sm-5 col-10");
-                        const textDiv = document.createElement("div");
-                        textDiv.setAttribute("class", "card");
-                        const imgDiv = document.createElement("div");
-                        imgDiv.setAttribute("class", "card-image col-8 m-auto mb-5");
-                        const img = document.createElement("img");
-                        img.setAttribute("src", item.volumeInfo.imageLinks.smallThumbnail);
-                        const libroDescDiv = document.createElement("div");
-                        libroDescDiv.setAttribute("class", "card-details");
-                        const descripcion = document.createElement("p");
-                        descripcion.setAttribute("class", "text-body align-content-center");
-                        const libroTitle = document.createElement("P");
-                        libroTitle.setAttribute("class", "text-title");
-                        const link = document.createElement("a");
-                        const i1 = document.createElement("i");
-                        i1.setAttribute("class", "fa-solid fa-pen-nib pe-2");
-                        const span1 = document.createElement("span");
-                        const i2 = document.createElement("i");
-                        i2.setAttribute("class", "fa-solid fa-calendar-days pe-2");
-                        const span2 = document.createElement("span");
-                        const i3 = document.createElement("i");
-                        i3.setAttribute("fa-solid fa-tag pe-2");
-                        const span3 = document.createElement("span");
+            titleP.textContent = item.volumeInfo.title || 'Título desconocido';
+            authorSpan.innerHTML = `<i class="fa-solid fa-pen-nib pe-2"></i>${item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Autor desconocido'}`;
+            dateSpan.innerHTML = `<i class="fa-solid fa-calendar-days pe-2"></i>${item.volumeInfo.publishedDate ? new Date(item.volumeInfo.publishedDate).toLocaleDateString() : 'Fecha desconocida'}`;
+            priceSpan.innerHTML = '<i class="fa-solid fa-tag pe-2"></i>21.75 €'; // Aquí puedes ajustar el precio si está disponible en los datos
 
-                        link.href = `libro-page.html?id=${item.id}`;
-                        libroTitle.textContent = item.volumeInfo.title;
+            button.innerHTML = '<i class="fa-solid fa-cart-shopping pe-3"></i>Añadir';
 
-                        resultadosDiv.appendChild(link);
-                            link.appendChild(imgDiv);
-                                imgDiv.appendChild(img);
-                            link.appendChild(textDiv);
-                                textDiv.appendChild(libroDescDiv);
-                                link.appendChild(libroTitle);
-                        libroDescDiv.appendChild(descripcion);
-                        
-                        
-                        
-                        
-                              
-                    }
-                });
-            } else {
-                resultadosDiv.textContent = "No se encontraron resultados.";
+            // Agregar los elementos al DOM de manera estructurada
+            resultadosDiv.appendChild(cardDiv);
+            cardDiv.appendChild(cardImageDiv);
+            cardImageDiv.appendChild(img);
+            cardDiv.appendChild(card);
+            card.appendChild(cardDetailsDiv);
+            cardDetailsDiv.appendChild(titleP);
+            cardDetailsDiv.appendChild(bodyP);
+            bodyP.appendChild(authorSpan);
+            bodyP.appendChild(document.createElement('br')); // Línea de salto
+            bodyP.appendChild(dateSpan);
+            bodyP.appendChild(document.createElement('br')); // Línea de salto
+            bodyP.appendChild(priceSpan);
+            card.appendChild(button);
             }
-        }
+        });
+    } else {
+        resultadosDiv.textContent = "No se encontraron resultados.";
+    }
+}
+
     </script>
     <!-- LOADER -->
     <script>
