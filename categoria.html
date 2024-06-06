@@ -282,11 +282,10 @@
             titleP.textContent = item.volumeInfo.title || 'Título desconocido';
             authorSpan.innerHTML = `<i class="fa-solid fa-pen-nib pe-2"></i>${item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Autor desconocido'}`;
             dateSpan.innerHTML = `<i class="fa-solid fa-calendar-days pe-2"></i>${item.volumeInfo.publishedDate ? new Date(item.volumeInfo.publishedDate).toLocaleDateString() : 'Fecha desconocida'}`;
-            priceSpan.innerHTML = '<i class="fa-solid fa-tag pe-2"></i>21.75 €'; // Aquí puedes ajustar el precio si está disponible en los datos
+            priceSpan.innerHTML = '<i class="fa-solid fa-tag pe-2"></i>21.75 €';
 
             button.innerHTML = '<i class="fa-solid fa-cart-shopping pe-3"></i>Añadir';
 
-            // Agregar los elementos al DOM de manera estructurada
             resultadosDiv.appendChild(cardDiv);
             cardDiv.appendChild(cardImageDiv);
             cardImageDiv.appendChild(img);
@@ -295,9 +294,9 @@
             cardDetailsDiv.appendChild(titleP);
             cardDetailsDiv.appendChild(bodyP);
             bodyP.appendChild(authorSpan);
-            bodyP.appendChild(document.createElement('br')); // Línea de salto
+            bodyP.appendChild(document.createElement('br'));
             bodyP.appendChild(dateSpan);
-            bodyP.appendChild(document.createElement('br')); // Línea de salto
+            bodyP.appendChild(document.createElement('br'));
             bodyP.appendChild(priceSpan);
             card.appendChild(button);
             }
