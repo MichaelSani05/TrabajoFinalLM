@@ -77,6 +77,9 @@
         </div>
     </header>
     <main class="col-12 d-flex flex-column align-items-center">
+        <div class="space-1"></div>
+        <div class="space-2"></div>
+        <div class="space-3"></div>
         <section class="sliced col-10">
             <div id="sliced-top" class="top col-12"></div>
             <div id="sliced-bottom" class="bottom col-12" aria-hidden="true"></div>
@@ -248,31 +251,45 @@
                 data.items.forEach(item => {
                     if (item.volumeInfo.description != undefined) {
                         const libroDiv = document.createElement("div");
-                        libroDiv.setAttribute("class", "cat-libro-item col-lg-6 col-10 row mb-5");
+                        libroDiv.setAttribute("class", "card-div mt-5 mb-5 col-md-3 col-sm-5 col-10");
                         const textDiv = document.createElement("div");
-                        textDiv.setAttribute("class", "cat-item-txt-container col-lg-8 col-12 box");
+                        textDiv.setAttribute("class", "card");
                         const imgDiv = document.createElement("div");
-                        imgDiv.setAttribute("class", "cat-item-img-container col-lg-4 col-12 text-center");
+                        imgDiv.setAttribute("class", "card-image col-8 m-auto mb-5");
                         const img = document.createElement("img");
                         img.setAttribute("src", item.volumeInfo.imageLinks.smallThumbnail);
-                        img.setAttribute("class", "cat-item-img");
                         const libroDescDiv = document.createElement("div");
-                        libroDescDiv.setAttribute("class", "cat-item-txt-descripcion col-12");
+                        libroDescDiv.setAttribute("class", "card-details");
                         const descripcion = document.createElement("p");
-                        descripcion.setAttribute("class", "cat-item-descripcion col-12");
-                        descripcion.textContent = item.volumeInfo.description;
-                        const libroTitle = document.createElement("h3");
+                        descripcion.setAttribute("class", "text-body align-content-center");
+                        const libroTitle = document.createElement("P");
+                        libroTitle.setAttribute("class", "text-title");
                         const link = document.createElement("a");
+                        const i1 = document.createElement("i");
+                        i1.setAttribute("class", "fa-solid fa-pen-nib pe-2");
+                        const span1 = document.createElement("span");
+                        const i2 = document.createElement("i");
+                        i2.setAttribute("class", "fa-solid fa-calendar-days pe-2");
+                        const span2 = document.createElement("span");
+                        const i3 = document.createElement("i");
+                        i3.setAttribute("fa-solid fa-tag pe-2");
+                        const span3 = document.createElement("span");
+
                         link.href = `libro-page.html?id=${item.id}`;
                         libroTitle.textContent = item.volumeInfo.title;
-                        link.appendChild(libroTitle);
-                        textDiv.appendChild(link);
+
+                        resultadosDiv.appendChild(link);
+                            link.appendChild(imgDiv);
+                                imgDiv.appendChild(img);
+                            link.appendChild(textDiv);
+                                textDiv.appendChild(libroDescDiv);
+                                link.appendChild(libroTitle);
                         libroDescDiv.appendChild(descripcion);
-                        textDiv.appendChild(libroDescDiv);
-                        imgDiv.appendChild(img);
-                        libroDiv.appendChild(imgDiv);
-                        libroDiv.appendChild(textDiv);
-                        resultadosDiv.appendChild(libroDiv);      
+                        
+                        
+                        
+                        
+                              
                     }
                 });
             } else {
@@ -290,28 +307,6 @@
             body.style.overflow = "auto";
         }, "2000");
     </script>
-    <script>
-        const { Client } = require('pg');
-
-        // Reemplaza estos valores con tus propias credenciales y detalles de conexión
-        const connectionString = process.env.DATABASE_URL || 'postgres://default:VQ5JBq9ZUCIK@ep-winter-sky-a2l03w1l.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require';
-
-        const client = new Client({
-            connectionString: connectionString,
-            ssl: {
-                rejectUnauthorized: false // Esto es necesario si estás usando SSL, pero ten cuidado ya que deshabilita la validación del certificado
-            }
-        });
-
-        client.connect();
-
-        console.log('Conectado a la base de datos');
-
-        // Ejemplo de consulta
-        client.query('SELECT NOW()', (err, res) => {
-            console.log(err, res);
-            client.end();
-        });
-    </script>
+    <script src="lluvia-estrellas.js"></script>
 </body>
 </html>
