@@ -4,7 +4,6 @@ body{
 
 main{
     background-color: rgb(15, 15, 15);
-    margin-top: 100px;
     height: max-content;
     min-height: 86.5vh;
     place-content: center;

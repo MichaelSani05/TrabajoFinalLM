@@ -493,16 +493,3 @@ body{
       backdrop-filter: blur(5px);
     }
   }
-
-  @keyframes aparecer {
-    from{
-      opacity: 0;
-      transform: scale(0.5);
-      transform: translateY(20);
-    }
-    
-    to{
-      opacity: 1;
-      transform: scale(1);
-    }
-  }

@@ -111,20 +111,20 @@ main{
     position: relative;
     padding: 1.6rem 1rem;
     border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
+    transition: 0.5s all ease-out;
     overflow: visible;
-    animation: aparecer linear both;
-    animation-timeline: view(10% 20%);
-    animation-range: 0 100px;
+   }
+
+   .card-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
    }
 
    .card-image{
     transition: 0.3s all ease-in-out;
-    animation: aparecer linear both;
-    animation-timeline: view(10% 50%);
-    animation-range: 0 200px;
    }
-   
+
    .card-div:hover .card-image{
     transform: translateY(-10px);
     filter: brightness(1.1);
@@ -166,7 +166,7 @@ main{
     font-size: 1.5em;
     font-weight: bold;
     margin: 0px;
-    color: #13aa70;
+    color: #13aa70 !important;
    }
 
    .text-body i{
@@ -196,3 +196,5 @@ main{
     transform: translate(-50%, 50%);
     opacity: 1;
    }
+
+   

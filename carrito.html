@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="loading-page.css">
-    <link rel="stylesheet" href="categoria.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body id="body">
     <nav id="menu" class="col-6">
@@ -74,42 +72,67 @@
             <i class="fa-solid fa-bars"></i>
         </div>
     </header>
-    <main class="col-12 d-flex flex-column align-items-center">
-        <div class="space-1"></div>
-        <div class="space-2"></div>
-        <div class="space-3"></div>
-        <section class="sliced col-10">
-            <div id="sliced-top" class="top col-12"></div>
-            <div id="sliced-bottom" class="bottom col-12" aria-hidden="true"></div>
-        </section>
-        <div id="categorias" class="col-12 row justify-content-center">
-            <div id="categoria-content" class="row col-10 justify-content-evenly">
-            </div>
-        </div>
-        <div id="loader">
-            <div class="wrapper">
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="circle"></div>
-                <div class="shadow"></div>
-                <div class="shadow"></div>
-                <div class="shadow"></div>
-            </div>
-        </div>
-        <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-top-left" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Añadido al carrito</h5>
-                    </div>
-                    <div class="modal-body">
-                        Su libro ha sido añadido correctamente.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Quitar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-                    </div>
+    <main>
+        <div class="container py-5">
+            <h1 class="display-5 fw-bold">Carrito de compras</h1>
+            <hr class="my-4">
+            <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Artículos en el carrito</h5>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="product-info col-4">
+                            <img src="IMG/alas-de-sangre.jfif" alt="Producto 1" class="img-fluid rounded col-6 mb-3">
+                            <h6>Alas de Sangre</h6>
+                            <p class="text-muted">Rebecca Yarros</p>
+                        </div>
+                        <div class="quantity">
+                            <input type="number" value="1" min="1" max="10" class="form-control quantity-input">
+                        </div>
+                        <span class="badge bg-primary rounded-pill">$10.99</span>
+                        <button class="btn btn-sm btn-danger remove-btn">Eliminar</button>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="product-info col-4">
+                            <img src="IMG/el-señor-de-los-anillos.jfif" alt="Producto 2" class="img-fluid rounded col-6 mb-3">
+                            <h6>El señor de los anillos</h6>
+                            <p class="text-muted">J. R. R. Tolkien</p>
+                        </div>
+                        <div class="quantity">
+                            <input type="number" value="2" min="1" max="10" class="form-control quantity-input">
+                        </div>
+                        <span class="badge bg-primary rounded-pill">$9.99</span>
+                        <button class="btn btn-sm btn-danger remove-btn">Eliminar</button>
+                    </li>
+                    <!-- Agrega más artículos aquí -->
+                    </ul>
                 </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Resumen de la orden</h5>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Subtotal
+                        <span class="badge bg-primary rounded-pill">$29.97</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Impuesto (10%)
+                        <span class="badge bg-primary rounded-pill">$2.99</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Total
+                        <span class="badge bg-primary rounded-pill">$32.96</span>
+                    </li>
+                    </ul>
+                    <button class="btn btn-primary w-100">Proceder al pago</button>
+                </div>
+                </div>
+            </div>
             </div>
         </div>
     </main>
@@ -149,7 +172,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         const closeMenu = document.getElementById("close-menu");
         const menu = document.getElementById("menu");
@@ -253,129 +275,5 @@
           
         }
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            cargarInfo();
-        })
-        function cargarInfo() {
-            var params = new URLSearchParams(window.location.search);
-            var subject = params.get('subject');
-            console.log(subject);
-            const url = `https://www.googleapis.com/books/v1/volumes?q=subject:${subject}`;
-
-            const slicedTop = document.getElementById("sliced-top");
-            const slicedBottom = document.getElementById("sliced-bottom");
-            if (subject == 'Ficcion') {
-                slicedTop.innerHTML = "Ficción";
-                slicedBottom.innerHTML = "Ficción";
-                console.log(subject);
-            }
-            else if (subject == 'Adventure') {
-                slicedTop.innerHTML = "Aventura";
-                slicedBottom.innerHTML = "Aventura";
-                console.log(subject);
-            }
-            else if (subject == 'Fantasy') {
-                slicedTop.innerHTML = "Fantasía";
-                slicedBottom.innerHTML = "Fantasía";
-                console.log(subject);
-            }
-
-            fetch(url)
-            .then(response => response.json())
-            .then(data => mostrarResultadosCat(data, subject))
-            .catch(error => console.error('Error:', error));
-        }
-
-        function mostrarResultadosCat(data, subject) {
-            const resultadosDiv = document.getElementById("categoria-content");
-            const imgFiccion = ["ficcion-1.jpg", "ficcion-2.jpg", "ficcion-3.jpg", "ficcion-4.jpg", "ficcion-5.jpg", "ficcion-6.jpg"];
-            const imgAventura = ["aventura-1.jpg", "aventura-2.jpg", "aventura-3.jpg", "aventura-4.jpg", "aventura-5.jpg", "aventura-6.jpg"];
-            const imgFantasia = ["fantasia-1.jpg", "fantasia-2.jpg", "fantasia-3.jpg", "fantasia-4.jpg", "fantasia-5.jpg", "fantasia-6.jpg"];
-            resultadosDiv.innerHTML = '';
-            let contador = 0;
-
-            if (data.items && data.items.length > 0) {
-                data.items.forEach(item => {
-                    if (item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail && item.volumeInfo.authors != "Jorge Luis Borges" && contador < 6) {
-                        const cardDiv = document.createElement('div');
-                        const cardImageDiv = document.createElement('div');
-                        const img = document.createElement('img');
-                        const card = document.createElement('div');
-                        const cardDetailsDiv = document.createElement('div');
-                        const titleP = document.createElement('p');
-                        const bodyP = document.createElement('p');
-                        const authorSpan = document.createElement('span');
-                        const dateSpan = document.createElement('span');
-                        const priceSpan = document.createElement('span');
-                        const button = document.createElement('button');
-                        const cartIcon = document.createElement('i');
-                        const link = document.createElement("a");
-
-                        cardDiv.className = 'card-div mt-5 mb-5 col-md-4 col-sm-5 col-10';
-                        cardImageDiv.className = 'card-image col-8 m-auto mb-5';
-                        img.alt = '';
-                        img.className = 'w-100';
-                        card.className = 'card';
-                        cardDetailsDiv.className = 'card-details';
-                        titleP.className = 'text-title';
-                        bodyP.className = 'text-body align-content-center';
-                        button.className = 'card-button';
-                        button.setAttribute('data-toggle', 'modal');
-                        button.setAttribute('data-target', '#cartModal');
-                        cartIcon.className = 'fa-solid fa-cart-shopping pe-3';
-
-                        if (subject == 'Ficcion') {
-                            img.src = `IMG/Ficcion/${imgFiccion[contador]}`;
-                        }
-                        else if (subject == 'Adventure') {
-                            img.src = `IMG/Aventura/${imgAventura[contador]}`;
-                        }
-                        else if (subject == 'Fantasy') {
-                            img.src = `IMG/Fantasia/${imgFantasia[contador]}`;
-                        }
-
-                        
-                        titleP.textContent = item.volumeInfo.title || 'Título desconocido';
-                        authorSpan.innerHTML = `<i class="fa-solid fa-pen-nib pe-2"></i>${item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Autor desconocido'}`;
-                        dateSpan.innerHTML = `<i class="fa-solid fa-calendar-days pe-2"></i>${item.volumeInfo.publishedDate ? new Date(item.volumeInfo.publishedDate).toLocaleDateString() : 'Fecha desconocida'}`;
-                        priceSpan.innerHTML = '<i class="fa-solid fa-tag pe-2"></i>21.75 €';
-
-                        button.innerHTML = '<i class="fa-solid fa-cart-shopping pe-3"></i>Añadir';
-
-                        resultadosDiv.appendChild(cardDiv);
-                        cardDiv.appendChild(cardImageDiv);
-                        cardImageDiv.appendChild(img);
-                        cardDiv.appendChild(card);
-                        card.appendChild(cardDetailsDiv);
-                        cardDetailsDiv.appendChild(titleP);
-                        cardDetailsDiv.appendChild(bodyP);
-                        bodyP.appendChild(authorSpan);
-                        bodyP.appendChild(document.createElement('br'));
-                        bodyP.appendChild(dateSpan);
-                        bodyP.appendChild(document.createElement('br'));
-                        bodyP.appendChild(priceSpan);
-                        card.appendChild(button);
-
-                        contador += 1;
-                    }
-                });
-            } else {
-                resultadosDiv.textContent = "No se encontraron resultados.";
-            }
-        }
-
-    </script>
-    <!-- LOADER -->
-    <script>
-        const loader = document.getElementById("loader");
-        const body = document.getElementById("body");
-
-        setTimeout(() => {
-            loader.style.display = "none";
-            body.style.overflow = "auto";
-        }, "2000");
-    </script>
-    <script src="lluvia-estrellas.js"></script>
 </body>
 </html>
